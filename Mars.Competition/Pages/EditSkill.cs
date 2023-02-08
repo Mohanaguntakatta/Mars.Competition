@@ -27,7 +27,7 @@ namespace Mars.Competition.Pages
         IWebElement creditColum => driver.FindElement(By.XPath("//*[@id=\"service-listing-section\"]/div[2]/div/form/div[8]/div[4]/div/div/div/div/div/input"));
         IWebElement saveButton => driver.FindElement(By.XPath("//*[@id=\"service-listing-section\"]/div[2]/div/form/div[11]/div/input[1]"));
 
-        public void EditSkills()
+        public void EditSkills(string p0,string p1,string p2)
         {
             //Identify manage listings button and click          
             manageListing.Click();
@@ -37,11 +37,11 @@ namespace Mars.Competition.Pages
 
             //Identify tool text box and edit input     
             editToolTextBox.Clear();
-            editToolTextBox.SendKeys("Tester");
+            editToolTextBox.SendKeys(p0);
 
             //Identify description box and edit input         
             editDescriptionBox.Clear();
-            editDescriptionBox.SendKeys("QA Intern");
+            editDescriptionBox.SendKeys(p1);
 
             //Identify select category dropdown and select 
             editCategory.SelectByText("Programming & Tech");
@@ -50,7 +50,7 @@ namespace Mars.Competition.Pages
             editSubCategory.SelectByText("Web & Mobile App");
 
             //Identify tag box and enter valid input           
-            editTagBox.SendKeys(".net");
+            editTagBox.SendKeys(p2);
             editTagBox.SendKeys(Keys.Enter);
 
             //Identify service type and slect hourly one off service            

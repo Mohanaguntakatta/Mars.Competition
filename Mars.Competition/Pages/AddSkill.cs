@@ -14,7 +14,7 @@ namespace Mars.Competition.Pages
     {
 
         IWebElement shareSkillButton => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[1]/div/div[2]/a"));
-        IWebElement toolTextBox => driver.FindElement(By.Name("title"));
+        IWebElement titleTextBox => driver.FindElement(By.Name("title"));
         IWebElement descriptionBox => driver.FindElement(By.Name("description"));
         SelectElement addCategory => new SelectElement(driver.FindElement(By.Name("categoryId")));
         SelectElement subCategory => new SelectElement(driver.FindElement(By.Name("subcategoryId")));
@@ -28,16 +28,16 @@ namespace Mars.Competition.Pages
         IWebElement creditColum => driver.FindElement(By.Name("charge"));
         IWebElement selectSave => driver.FindElement(By.XPath("//*[@id=\"service-listing-section\"]/div[2]/div/form/div[11]/div/input[1]"));
 
-        public void AddSkills()
+        public void AddSkills(string p0,string p1,string p2)
         {
             //Identify share skill button and click
             shareSkillButton.Click();
 
-            //Identify tool text box and enter valid input          
-            toolTextBox.SendKeys("Automation Tester");         
+            //Identify title text box and enter valid input          
+            titleTextBox.SendKeys(p0);         
 
             //Identify description box and enter valid input         
-            descriptionBox.SendKeys("QA");
+            descriptionBox.SendKeys(p1);
 
             //Identify select category dropdown and select            
             addCategory.SelectByText("Programming & Tech");
@@ -46,7 +46,7 @@ namespace Mars.Competition.Pages
             subCategory.SelectByText("QA");
 
             //Identify tag box and enter valid input          
-            AddTagBox.SendKeys("Selenium");
+            AddTagBox.SendKeys(p2);
             AddTagBox.SendKeys(Keys.Enter);
 
             //Identify service type and slect hourly basis service

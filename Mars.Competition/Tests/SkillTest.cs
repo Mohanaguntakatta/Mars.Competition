@@ -1,5 +1,7 @@
 using Mars.Competition.Pages;
 using Mars.Competition.Utilities;
+using System.Reflection;
+using System.Security.Cryptography;
 
 namespace Mars.Competition.Tests
 {
@@ -21,24 +23,25 @@ namespace Mars.Competition.Tests
           
         }
 
-        [Test, Order(1)]
-        public void AddSkill()
+        [TestCase("Automation Tester","QA", "Selenium"), Order(1)]
+        public void AddSkill(string p0,string p1,string p2)
         {
             AddSkill Addskillobj = new AddSkill();
-            Addskillobj.AddSkills();
+            Addskillobj.AddSkills(p0,p1,p2);
         }
 
-        [Test, Order(2)]
-        public void EditSkill() 
+        [TestCase("Tester", "QA Intern", ".net"), Order(2)]
+        public void EditSkill(string p0,string p1,string p2) 
         {
             EditSkill Editskillobj = new EditSkill();
-            Editskillobj.EditSkills();
+            Editskillobj.EditSkills(p0,p1,p2);
         }
-        [Test, Order(3)]
-        public void DeleteSkill()
+
+        [TestCase("Tester"), Order(3)]
+        public void DeleteSkill(string deleteSkillTitle)
         {
             DeleteSkill Deleteskillobj = new DeleteSkill();
-            Deleteskillobj.DeleteSkills();
+            Deleteskillobj.DeleteSkills(deleteSkillTitle);
         }
 
         [TearDown]
