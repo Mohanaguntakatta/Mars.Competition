@@ -58,6 +58,7 @@ namespace Mars.Competition.Tests
             EditSkill Editskillobj = new EditSkill();
             Editskillobj.EditSkills(p0,p1,p2);
             test.Log(Status.Info, "Skills edited in Manage listing");
+            Editskillobj.editedSkills.Should().BeTrue();
         }
 
         [TestCase("Tester"), Order(3)]
@@ -68,6 +69,7 @@ namespace Mars.Competition.Tests
             DeleteSkill Deleteskillobj = new DeleteSkill();
             Deleteskillobj.DeleteSkills(deleteSkillTitle);
             test.Log(Status.Info, "Skills deleted in Manage listing");
+            Deleteskillobj.deletedSkills.Should().BeTrue();
         }
 
         [TearDown]
