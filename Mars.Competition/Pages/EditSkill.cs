@@ -11,6 +11,8 @@ namespace Mars.Competition.Pages
 {
     public class EditSkill: CommonDriver
     {
+        public bool editedSkills = false;
+
         IWebElement manageListing => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[1]/div/a[3]"));
         IWebElement editButton => driver.FindElement(By.XPath("//*[@id=\"listing-management-section\"]/div[2]/div[1]/div[1]/table/tbody/tr[1]/td[8]/div/button[2]/i"));
         IWebElement editToolTextBox => driver.FindElement(By.Name("title"));
@@ -76,6 +78,9 @@ namespace Mars.Competition.Pages
 
             //Identify save button and save
             saveButton.Click();
+
+            editedSkills = true;
+
         }
     }
 }

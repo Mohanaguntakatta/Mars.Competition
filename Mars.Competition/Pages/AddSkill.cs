@@ -12,6 +12,7 @@ namespace Mars.Competition.Pages
 {
     public class AddSkill : CommonDriver
     {
+        public bool skillAdded = false;
 
         IWebElement shareSkillButton => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[1]/div/div[2]/a"));
         IWebElement titleTextBox => driver.FindElement(By.Name("title"));
@@ -72,6 +73,8 @@ namespace Mars.Competition.Pages
 
             //Identify save button and save
             selectSave.Click();
+
+            skillAdded = true;
             
         }
 

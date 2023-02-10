@@ -9,7 +9,9 @@ using System.Threading.Tasks;
 namespace Mars.Competition.Pages
 {
     public class DeleteSkill : CommonDriver
-    {
+    {   
+        public bool deletedSkills = false;
+
         IWebElement manageListing => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[1]/div/a[3]"));
         IWebElement deleteButton => driver.FindElement(By.XPath("//*[@id=\"listing-management-section\"]/div[2]/div[1]/div[1]/table/tbody/tr[1]/td[8]/div/button[3]/i"));
         IWebElement yesButton => driver.FindElement(By.XPath("/html/body/div[2]/div/div[3]/button[2]/i"));
@@ -24,6 +26,8 @@ namespace Mars.Competition.Pages
 
             //select yes button            
             yesButton.Click();
+
+            deletedSkills= true;
 
         }
     }

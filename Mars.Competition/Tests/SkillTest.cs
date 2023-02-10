@@ -4,8 +4,7 @@ using Mars.Competition.Pages;
 using Mars.Competition.Utilities;
 using System.Reflection;
 using System.Security.Cryptography;
-
-
+using FluentAssertions;
 
 namespace Mars.Competition.Tests
 {
@@ -47,6 +46,7 @@ namespace Mars.Competition.Tests
             AddSkill Addskillobj = new AddSkill();
             Addskillobj.AddSkills(p0,p1,p2);
             test.Log(Status.Info, "Skills added in Manage listing");
+            Addskillobj.skillAdded.Should().BeTrue();
         }
 
         [TestCase("Tester", "QA Intern", ".net"), Order(2)]
