@@ -38,26 +38,32 @@ namespace Mars.Competition.Tests
           
         }
 
-        [TestCase("Automation Tester","QA", "Selenium"), Order(1)]
-        public void AddSkill(string p0,string p1,string p2)
+        [Test, Order(1)]
+        public void AddSkill()
         {
             test = null;
             test = extent.CreateTest("Test add skills");
+
             AddSkill Addskillobj = new AddSkill();
-            Addskillobj.AddSkills(p0,p1,p2);
+            Addskillobj.AddSkills();
+
             test.Log(Status.Info, "Skills added in Manage listing");
+
             Addskillobj.skillAdded.Should().BeTrue();
         }
 
-        [TestCase("Tester", "QA Intern", ".net"), Order(2)]
-        public void EditSkill(string p0,string p1,string p2) 
+        [Test(), Order(2)]
+        public void EditSkill() 
         {
 
             test = null;
             test = extent.CreateTest("Test edit skills");
+
             EditSkill Editskillobj = new EditSkill();
-            Editskillobj.EditSkills(p0,p1,p2);
+            Editskillobj.EditSkills();
+
             test.Log(Status.Info, "Skills edited in Manage listing");
+
             Editskillobj.editedSkills.Should().BeTrue();
         }
 
@@ -66,9 +72,12 @@ namespace Mars.Competition.Tests
         {
             test = null;
             test = extent.CreateTest("Test Delete skills");
+
             DeleteSkill Deleteskillobj = new DeleteSkill();
             Deleteskillobj.DeleteSkills(deleteSkillTitle);
+
             test.Log(Status.Info, "Skills deleted in Manage listing");
+
             Deleteskillobj.deletedSkills.Should().BeTrue();
         }
 
