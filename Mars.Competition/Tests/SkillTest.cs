@@ -14,9 +14,9 @@ namespace Mars.Competition.Tests
 
         CommonDriver driver;
 
-         public static ExtentTest test;
+        // public static ExtentTest test;
 
-        public static ExtentReports extent = new ExtentReports();
+        //public static ExtentReports extent = new ExtentReports();
 
         //public CommonDriver Driver { get => driver; set => driver = value; }
 
@@ -29,8 +29,8 @@ namespace Mars.Competition.Tests
         public void LoginSteps()
         {
             // extent = new ExtentReports();
-            var htmlreporter = new ExtentHtmlReporter(@"C:\Mars.Competition\Mars.Competition\Mars.Competition" + DateTime.Now.ToString("_MMddyyyy_hhmmtt") + ".html");
-            extent.AttachReporter(htmlreporter);
+            //var htmlreporter = new ExtentHtmlReporter(@"C:\Mars.Competition\Mars.Competition\Mars.Competition" + DateTime.Now.ToString("_MMddyyyy_hhmmtt") + ".html");
+            //extent.AttachReporter(htmlreporter);
 
             // Login page object initialization and definition
             LoginToPortal loginpageObj = new LoginToPortal();
@@ -41,28 +41,29 @@ namespace Mars.Competition.Tests
         [Test, Order(1)]
         public void AddSkill()
         {
-            test = null;
-            test = extent.CreateTest("Test add skills");
+        //    test = null;
+        //    test = extent.CreateTest("Test add skills");
+
 
             AddSkill Addskillobj = new AddSkill();
             Addskillobj.AddSkills();
 
-            test.Log(Status.Info, "Skills added in Manage listing");
+            //test.Log(Status.Info, "Skills added in Manage listing");
 
             Addskillobj.skillAdded.Should().BeTrue();
         }
 
-        [Test(), Order(2)]
+        [Test, Order(2)]
         public void EditSkill() 
         {
 
-            test = null;
-            test = extent.CreateTest("Test edit skills");
+            //test = null;
+            //test = extent.CreateTest("Test edit skills");
 
             EditSkill Editskillobj = new EditSkill();
             Editskillobj.EditSkills();
 
-            test.Log(Status.Info, "Skills edited in Manage listing");
+            //test.Log(Status.Info, "Skills edited in Manage listing");
 
             Editskillobj.editedSkills.Should().BeTrue();
         }
@@ -70,13 +71,13 @@ namespace Mars.Competition.Tests
         [TestCase("Tester"), Order(3)]
         public void DeleteSkill(string deleteSkillTitle)
         {
-            test = null;
-            test = extent.CreateTest("Test Delete skills");
+            //test = null;
+            //test = extent.CreateTest("Test Delete skills");
 
             DeleteSkill Deleteskillobj = new DeleteSkill();
             Deleteskillobj.DeleteSkills(deleteSkillTitle);
 
-            test.Log(Status.Info, "Skills deleted in Manage listing");
+            //test.Log(Status.Info, "Skills deleted in Manage listing");
 
             Deleteskillobj.deletedSkills.Should().BeTrue();
         }
@@ -85,7 +86,7 @@ namespace Mars.Competition.Tests
         public void quit ()
         {
             driver.shutDown();
-            extent.Flush();
+            //extent.Flush();
         }
     }
 }
